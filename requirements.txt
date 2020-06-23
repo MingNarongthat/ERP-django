@@ -9,6 +9,7 @@ distlib==0.3.0
 Django==2.2
 django-hitcount==1.3.2
 filelock==3.0.12
+fonttools==4.12.1
 fpdf==1.7.2
 html5lib==1.0.1
 gunicorn==20.0.4

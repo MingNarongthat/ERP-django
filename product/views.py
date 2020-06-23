@@ -22,7 +22,7 @@ from reportlab.platypus import Paragraph, Table, TableStyle, Image
 from reportlab.platypus.doctemplate import SimpleDocTemplate
 from reportlab.platypus.flowables import Image
 from reportlab.platypus.tables import Table, TableStyle, GRID_STYLE, BOX_STYLE, LABELED_GRID_STYLE, COLORED_GRID_STYLE, LIST_STYLE, LongTable
-
+from fontTools.ttLib import TTFont
 
 dateTimeObj = datetime.now()
 
