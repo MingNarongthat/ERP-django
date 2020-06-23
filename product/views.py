@@ -42,7 +42,7 @@ def GENPDF(request):
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
 	# pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.ttf'))
-	pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.woff'))
+	# pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.woff'))
 	styleSheet = getSampleStyleSheet()
 	styleN = styleSheet["Normal"]
 	styleT = styleSheet["Title"]
