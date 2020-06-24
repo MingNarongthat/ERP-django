@@ -41,7 +41,7 @@ def GENPDF(request):
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
-	# pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.ttf'))
+	pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.ttf'))
 	# pdfmetrics.registerFont(TTFont('thsarabun', 'supermarket.woff'))
 	styleSheet = getSampleStyleSheet()
 	styleN = styleSheet["Normal"]
@@ -78,162 +78,162 @@ def GENPDF(request):
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
-	ptext = Paragraph("<font size=28  color='darkblue'>ใบเสนอราคา/QUOTATION</font>".format(Quo_no), styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='darkblue'>ใบเสนอราคา/QUOTATION</font>".format(Quo_no), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 280 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>ผู้เสนอ</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ผู้เสนอ</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 265 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 265 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>18/1-2 พระรามหกตัดใหม่ซอย 4 ถนนพระรามหกตัดใหม่</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>18/1-2 พระรามหกตัดใหม่ซอย 4 ถนนพระรามหกตัดใหม่</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 260 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>แขวงรองเมือง เขตปทุมวัน กรุงเทพฯ 10330</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>แขวงรองเมือง เขตปทุมวัน กรุงเทพฯ 10330</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 255 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>เลขประจำตัวผู้เสียภาษี: 0105562135191</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>เลขประจำตัวผู้เสียภาษี: 0105562135191</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 250 *mm)
 
 	p.line(38 *mm, 246 *mm, 95 *mm, 246 *mm) # line
 
 	### ==========> ผู้ซื้อ ===================================================================
-	ptext = Paragraph("<font size=12  color='darkblue'>ผู้ซื้อ</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ผู้ซื้อ</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 243 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(firm), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(firm), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 243 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(address), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(address), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 238 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(province), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(province), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 233 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>เลขประจำตัวผู้เสียภาษี: {}</font>".format(tax), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>เลขประจำตัวผู้เสียภาษี: {}</font>".format(tax), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 228 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>โทร: {}</font>".format(tel1), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>โทร: {}</font>".format(tel1), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 223 *mm)
 
 	### ==========> วันเวลา เลขใบ ===================================================================
-	ptext = Paragraph("<font size=11  color='darkblue'>DATE</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>DATE</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 285 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>QUOTATION NO.</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>QUOTATION NO.</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 280 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>USER NO.</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>USER NO.</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 275 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 285 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>{}</font>".format(Quo_no), styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>{}</font>".format(Quo_no), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 280 *mm)
 
-	# ptext = Paragraph("<font size=11 >{}</font>".format(Quo_no), styleN)
+	# ptext = Paragraph("<font size=11 name='thsarabun'>{}</font>".format(Quo_no), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 170 *mm, 275 *mm)
 
 	### ==========> ราคา ===================================================================
-	ptext = Paragraph("<font size=28  color='red'>THB</font>", styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='red'>THB</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 250 *mm)
 
-	ptext = Paragraph("<font size=28  color='red'>{:,}</font>".format(Total_tax), styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='red'>{:,}</font>".format(Total_tax), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 163 *mm, 250 *mm)
 
 	### ==========> ราคา ===================================================================
 	p.line(20 *mm, 220 *mm, 190 *mm, 220 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>No.</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>No.</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 30 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>DESCRIPTION</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>DESCRIPTION</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 77 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>QTY.</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>QTY.</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 133 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>PRICE</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>PRICE</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 150 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>TOTAL</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>TOTAL</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 210 *mm)
 
 	p.line(20 *mm, 210 *mm, 190 *mm, 210 *mm)
 
 	### ==========> สินค้า 1 ===================================================================
-	ptext = Paragraph("<font size=12  color='darkblue'>1</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>1</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 30 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(name_Product), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(name_Product), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(amount), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(amount), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 133 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(price), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 150 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Total_price), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Total_price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 195 *mm)
 
 	### ==========> สินค้า 2 ===================================================================
-	# ptext = Paragraph("<font size=12 >{}</font>".format(request.POST(NO2)), styleN)
+	# ptext = Paragraph("<font size=12 name='thsarabun'>{}</font>".format(request.POST(NO2)), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 30 *mm, 195 *mm)
 
-	# ptext = Paragraph("<font size=12 >{}</font>".format(name_Product2), styleN)
+	# ptext = Paragraph("<font size=12 name='thsarabun'>{}</font>".format(name_Product2), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 77 *mm, 195 *mm)
 
-	# ptext = Paragraph("<font size=12 >{}</font>".format(amount2), styleN)
+	# ptext = Paragraph("<font size=12 name='thsarabun'>{}</font>".format(amount2), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 133 *mm, 195 *mm)
 
-	# ptext = Paragraph("<font size=12 >{:,}</font>".format(price2), styleN)
+	# ptext = Paragraph("<font size=12 name='thsarabun'>{:,}</font>".format(price2), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 150 *mm, 195 *mm)
 
-	# ptext = Paragraph("<font size=12 >{:,}</font>".format(Total_price), styleN)
+	# ptext = Paragraph("<font size=12 name='thsarabun'>{:,}</font>".format(Total_price), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 170 *mm, 195 *mm)
 
 	### ==========> ข้อมูลฝั่งลูกค้า ===================================================================
 	p.line(20 *mm, 90 *mm, 190 *mm, 90 *mm)
 
-	ptext = Paragraph("<font size=8 >*ราคานี้รวมค่าจัดส่งแล้ว	กำหนดส่ง: 30-35 วันนับจากวันที่ยืนยันแบบสินค้า</font>", styleN)
+	ptext = Paragraph("<font size=8 name='thsarabun'>*ราคานี้รวมค่าจัดส่งแล้ว	กำหนดส่ง: 30-35 วันนับจากวันที่ยืนยันแบบสินค้า</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 85 *mm) 
 
@@ -242,82 +242,82 @@ def GENPDF(request):
 	p.line(20 *mm, 55 *mm, 20 *mm, 80 *mm) # x left
 	p.line(110 *mm, 55 *mm, 110 *mm, 80 *mm) # x right
 
-	ptext = Paragraph("<font size=10  color='darkblue'>โอนเข้าบัญชี:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>โอนเข้าบัญชี:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 75 *mm)	
 
-	ptext = Paragraph("<font size=10  color='red'>ธนาคาร ออมสิน สาขาสำนักพหลโยธิน เงินฝากเผื่อเรียก</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='red'>ธนาคาร ออมสิน สาขาสำนักพหลโยธิน เงินฝากเผื่อเรียก</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=10  color='red'>020-3-0161656-9 บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='red'>020-3-0161656-9 บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>Email:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>Email:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 65 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>phannarong@c2tradinggroup.com</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>phannarong@c2tradinggroup.com</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 65 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>Tel:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>Tel:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 60 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>094-296-3261 (โอ่ง)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>094-296-3261 (โอ่ง)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 60 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>ในนาม {}</font>".format(firm), styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>ในนาม {}</font>".format(firm), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 50 *mm)
 
 	### ==========> ข้อมูลฝั่งลผู้ขาย ===================================================================
 	p.line(120 *mm, 80 *mm, 190 *mm, 80 *mm) # x top
 
-	ptext = Paragraph("<font size=12  color='darkblue'>ยอดรวมสินค้า</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ยอดรวมสินค้า</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Total_price), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Total_price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>Vat 7%</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>Vat 7%</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Vat), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Vat), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 70 *mm)
 
 	p.line(120 *mm, 67.5 *mm, 190 *mm, 67.5 *mm) # x middle
 
-	ptext = Paragraph("<font size=18  color='red'>รวมทั้งสิ้น</font>", styleN)
+	ptext = Paragraph("<font size=18 name='thsarabun' color='red'>รวมทั้งสิ้น</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 62.5*mm)
 
-	ptext = Paragraph("<font size=12  color='red'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='red'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 62.5*mm)
 
-	ptext = Paragraph("<font size=12  color='red'>{:,}</font>".format(Total_tax), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='red'>{:,}</font>".format(Total_tax), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 62.5*mm)
 
 	p.line(120 *mm, 55 *mm, 190 *mm, 55 *mm) # x bottom
 
-	ptext = Paragraph("<font size=10  color='darkblue'>ในนาม บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>ในนาม บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 50 *mm)
 
@@ -325,29 +325,29 @@ def GENPDF(request):
 	p.line(20 *mm, 25 *mm, 55 *mm, 25 *mm)
 	p.line(60 *mm, 25 *mm, 95 *mm, 25 *mm)
 
-	ptext = Paragraph("<font size=12  color= 'darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color= 'darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 168 *mm, 27 *mm)
 	p.line(125 *mm, 25 *mm, 160 *mm, 25 *mm)
 	p.line(165 *mm, 25 *mm, 190 *mm, 25 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>(</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>(</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 20 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 55 *mm, 20 *mm)
 
 	p.drawImage("https://gdurl.com/e6F8", 128 *mm, 26 * mm, width=70,height=50)
-	ptext = Paragraph("<font size=10  color='darkblue'>(พันธุ์ณรงค์	ศรีนะภาพรรณ)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>(พันธุ์ณรงค์	ศรีนะภาพรรณ)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 126.5 *mm, 20 *mm)
 
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	ptext = Paragraph("<font size=16  color='red'>{}</font>".format(productID), styleT)
+	ptext = Paragraph("<font size=16 name='thsarabun' color='red'>{}</font>".format(productID), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 265 *mm)
 
@@ -360,33 +360,33 @@ def GENPDF(request):
 	p.drawImage(link_image5, 80 *mm, 105 * mm, width=50*mm,height=50*mm,)
 	p.drawImage(link_image6, 25 *mm, 105 * mm, width=50*mm,height=50*mm,)
 
-	ptext = Paragraph("<font size=22  color='red'>ราคา</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>ราคา</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>บาท</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>บาท</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 90 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>{:,}</font>".format(price), styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>{:,}</font>".format(price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 60 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=14  color='darkblue'>{}</font>".format(name_Product), styleN)
+	ptext = Paragraph("<font size=14 name='thsarabun' color='darkblue'>{}</font>".format(name_Product), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 75*mm)
 
 	p.line(0 *mm, 20 *mm, 220 *mm, 20 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 15 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>TEL: 094-296-3261</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>TEL: 094-296-3261</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 80 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 120 *mm, 15*mm)
 
@@ -460,162 +460,162 @@ def GENPDF2(request):
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
-	ptext = Paragraph("<font size=28  color='darkblue'>ใบเสนอราคา/QUOTATION</font>".format(Quo_no), styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='darkblue'>ใบเสนอราคา/QUOTATION</font>".format(Quo_no), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 280 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>ผู้เสนอ</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ผู้เสนอ</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 265 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 265 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>18/1-2 พระรามหกตัดใหม่ซอย 4 ถนนพระรามหกตัดใหม่</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>18/1-2 พระรามหกตัดใหม่ซอย 4 ถนนพระรามหกตัดใหม่</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 260 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>แขวงรองเมือง เขตปทุมวัน กรุงเทพฯ 10330</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>แขวงรองเมือง เขตปทุมวัน กรุงเทพฯ 10330</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 255 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>เลขประจำตัวผู้เสียภาษี: 0105562135191</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>เลขประจำตัวผู้เสียภาษี: 0105562135191</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 250 *mm)
 
 	p.line(38 *mm, 246 *mm, 95 *mm, 246 *mm) # line
 
 	### ==========> ผู้ซื้อ ===================================================================
-	ptext = Paragraph("<font size=12  color='darkblue'>ผู้ซื้อ</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ผู้ซื้อ</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 243 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(firm), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(firm), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 243 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(address), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(address), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 238 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(province), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(province), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 233 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>เลขประจำตัวผู้เสียภาษี: {}</font>".format(tax), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>เลขประจำตัวผู้เสียภาษี: {}</font>".format(tax), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 228 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>โทร: {}</font>".format(tel1), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>โทร: {}</font>".format(tel1), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 223 *mm)
 
 	### ==========> วันเวลา เลขใบ ===================================================================
-	ptext = Paragraph("<font size=11  color='darkblue'>DATE</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>DATE</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 285 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>QUOTATION NO.</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>QUOTATION NO.</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 280 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>USER NO.</font>", styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>USER NO.</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 275 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 285 *mm)
 
-	ptext = Paragraph("<font size=11  color='darkblue'>{}</font>".format(Quo_no), styleN)
+	ptext = Paragraph("<font size=11 name='thsarabun' color='darkblue'>{}</font>".format(Quo_no), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 280 *mm)
 
-	# ptext = Paragraph("<font size=11 >{}</font>".format(Quo_no), styleN)
+	# ptext = Paragraph("<font size=11 name='thsarabun'>{}</font>".format(Quo_no), styleN)
 	# ptext.wrapOn(p, width, height)
 	# ptext.drawOn(p, 170 *mm, 275 *mm)
 
 	### ==========> ราคา ===================================================================
-	ptext = Paragraph("<font size=28  color='red'>THB</font>", styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='red'>THB</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 130 *mm, 250 *mm)
 
-	ptext = Paragraph("<font size=28  color='red'>{:,}</font>".format(Total_tax+Total_tax2), styleT)
+	ptext = Paragraph("<font size=28 name='thsarabun' color='red'>{:,}</font>".format(Total_tax+Total_tax2), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 163 *mm, 250 *mm)
 
 	### ==========> ราคา ===================================================================
 	p.line(20 *mm, 220 *mm, 190 *mm, 220 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>No.</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>No.</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 30 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>DESCRIPTION</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>DESCRIPTION</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 77 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>QTY.</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>QTY.</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 133 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>PRICE</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>PRICE</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 150 *mm, 210 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>TOTAL</font>", styleT)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>TOTAL</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 210 *mm)
 
 	p.line(20 *mm, 210 *mm, 190 *mm, 210 *mm)
 
 	### ==========> สินค้า 1 ===================================================================
-	ptext = Paragraph("<font size=12  color='darkblue'>1</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>1</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 30 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(name_Product), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(name_Product), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(amount), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(amount), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 133 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(price), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 150 *mm, 195 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Total_price), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Total_price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 195 *mm)
 
 	### ==========> สินค้า 2 ===================================================================
-	ptext = Paragraph("<font size=12  color='darkblue'>2</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>2</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 30 *mm, 185 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(name_Product2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(name_Product2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 38 *mm, 185 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(amount2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(amount2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 133 *mm, 185 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(price2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(price2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 150 *mm, 185 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Total_price2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Total_price2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 185 *mm)
 
 	### ==========> ข้อมูลฝั่งลูกค้า ===================================================================
 	p.line(20 *mm, 90 *mm, 190 *mm, 90 *mm)
 
-	ptext = Paragraph("<font size=8 >*ราคานี้รวมค่าจัดส่งแล้ว	กำหนดส่ง: 30-35 วันนับจากวันที่ยืนยันแบบสินค้า</font>", styleN)
+	ptext = Paragraph("<font size=8 name='thsarabun'>*ราคานี้รวมค่าจัดส่งแล้ว	กำหนดส่ง: 30-35 วันนับจากวันที่ยืนยันแบบสินค้า</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 85 *mm) 
 
@@ -624,82 +624,82 @@ def GENPDF2(request):
 	p.line(20 *mm, 55 *mm, 20 *mm, 80 *mm) # x left
 	p.line(110 *mm, 55 *mm, 110 *mm, 80 *mm) # x right
 
-	ptext = Paragraph("<font size=10  color='darkblue'>โอนเข้าบัญชี:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>โอนเข้าบัญชี:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 75 *mm)	
 
-	ptext = Paragraph("<font size=10  color='red'>ธนาคาร ออมสิน สาขาสำนักพหลโยธิน เงินฝากเผื่อเรียก</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='red'>ธนาคาร ออมสิน สาขาสำนักพหลโยธิน เงินฝากเผื่อเรียก</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=10  color='red'>020-3-0161656-9 บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='red'>020-3-0161656-9 บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>Email:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>Email:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 65 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>phannarong@c2tradinggroup.com</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>phannarong@c2tradinggroup.com</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 65 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>Tel:</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>Tel:</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 60 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>094-296-3261 (โอ่ง)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>094-296-3261 (โอ่ง)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 40 *mm, 60 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>ในนาม {}</font>".format(firm), styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>ในนาม {}</font>".format(firm), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 22 *mm, 50 *mm)
 
 	### ==========> ข้อมูลฝั่งลผู้ขาย ===================================================================
 	p.line(120 *mm, 80 *mm, 190 *mm, 80 *mm) # x top
 
-	ptext = Paragraph("<font size=12  color='darkblue'>ยอดรวมสินค้า</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>ยอดรวมสินค้า</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Total_price+Total_price2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Total_price+Total_price2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 75 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>Vat 7%</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>Vat 7%</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 70 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{:,}</font>".format(Vat+Vat2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{:,}</font>".format(Vat+Vat2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 70 *mm)
 
 	p.line(120 *mm, 67.5 *mm, 190 *mm, 67.5 *mm) # x middle
 
-	ptext = Paragraph("<font size=18  color='red'>รวมทั้งสิ้น</font>", styleN)
+	ptext = Paragraph("<font size=18 name='thsarabun' color='red'>รวมทั้งสิ้น</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 62.5*mm)
 
-	ptext = Paragraph("<font size=12  color='red'>THB</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='red'>THB</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 160 *mm, 62.5*mm)
 
-	ptext = Paragraph("<font size=12  color='red'>{:,}</font>".format(Total_tax+Total_tax2), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='red'>{:,}</font>".format(Total_tax+Total_tax2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 175 *mm, 62.5*mm)
 
 	p.line(120 *mm, 55 *mm, 190 *mm, 55 *mm) # x bottom
 
-	ptext = Paragraph("<font size=10  color='darkblue'>ในนาม บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>ในนาม บริษัท ซีทูเทรดดิ้ง จำกัด</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 122 *mm, 50 *mm)
 
@@ -707,29 +707,29 @@ def GENPDF2(request):
 	p.line(20 *mm, 25 *mm, 55 *mm, 25 *mm)
 	p.line(60 *mm, 25 *mm, 95 *mm, 25 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>{}</font>".format(datetime.now().strftime('%d-%m-%Y')), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 168 *mm, 27 *mm)
 	p.line(125 *mm, 25 *mm, 160 *mm, 25 *mm)
 	p.line(165 *mm, 25 *mm, 190 *mm, 25 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>(</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>(</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 20 *mm, 20 *mm)
 
-	ptext = Paragraph("<font size=10  color='darkblue'>)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 55 *mm, 20 *mm)
 
 	p.drawImage("https://gdurl.com/e6F8", 128 *mm, 26 * mm, width=70,height=50)
-	ptext = Paragraph("<font size=10  color='darkblue'>(พันธุ์ณรงค์	ศรีนะภาพรรณ)</font>", styleN)
+	ptext = Paragraph("<font size=10 name='thsarabun' color='darkblue'>(พันธุ์ณรงค์	ศรีนะภาพรรณ)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 126.5 *mm, 20 *mm)
 
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	ptext = Paragraph("<font size=16  color='red'>{}</font>".format(productID), styleT)
+	ptext = Paragraph("<font size=16 name='thsarabun' color='red'>{}</font>".format(productID), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 265 *mm)
 
@@ -742,40 +742,40 @@ def GENPDF2(request):
 	p.drawImage(link_image5, 80 *mm, 105 * mm, width=50*mm,height=50*mm,)
 	p.drawImage(link_image6, 25 *mm, 105 * mm, width=50*mm,height=50*mm,)
 
-	ptext = Paragraph("<font size=22  color='red'>ราคา</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>ราคา</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>บาท</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>บาท</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 90 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>{:,}</font>".format(price), styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>{:,}</font>".format(price), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 60 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=14  color='darkblue'>{}</font>".format(name_Product), styleN)
+	ptext = Paragraph("<font size=14 name='thsarabun' color='darkblue'>{}</font>".format(name_Product), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 75*mm)
 
 	p.line(0 *mm, 20 *mm, 220 *mm, 20 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 15 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>TEL: 094-296-3261</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>TEL: 094-296-3261</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 80 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 120 *mm, 15*mm)
 
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	ptext = Paragraph("<font size=16  color='red'>{}</font>".format(productID), styleT)
+	ptext = Paragraph("<font size=16 name='thsarabun' color='red'>{}</font>".format(productID), styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 265 *mm)
 
@@ -788,33 +788,33 @@ def GENPDF2(request):
 	p.drawImage(link2_image5, 80 *mm, 105 * mm, width=50*mm,height=50*mm,)
 	p.drawImage(link2_image6, 25 *mm, 105 * mm, width=50*mm,height=50*mm,)
 
-	ptext = Paragraph("<font size=22  color='red'>ราคา</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>ราคา</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>บาท</font>", styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>บาท</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 90 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=22  color='red'>{:,}</font>".format(price2), styleN)
+	ptext = Paragraph("<font size=22 name='thsarabun' color='red'>{:,}</font>".format(price2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 60 *mm, 90*mm)
 
-	ptext = Paragraph("<font size=14  color='darkblue'>{}</font>".format(name_Product2), styleN)
+	ptext = Paragraph("<font size=14 name='thsarabun' color='darkblue'>{}</font>".format(name_Product2), styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 75*mm)
 
 	p.line(0 *mm, 20 *mm, 220 *mm, 20 *mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>สั่งซื้อ หรือ ติดต่อสอบถามข้อมูลเพิ่มเติม :</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 15 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>TEL: 094-296-3261</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>TEL: 094-296-3261</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 80 *mm, 15*mm)
 
-	ptext = Paragraph("<font size=12  color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
+	ptext = Paragraph("<font size=12 name='thsarabun' color='darkblue'>LINE@: c2premium (มี @ ด้านหน้าด้วย)</font>", styleN)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 120 *mm, 15*mm)
 
