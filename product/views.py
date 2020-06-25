@@ -22,7 +22,8 @@ from reportlab.platypus import Paragraph, Table, TableStyle, Image
 from reportlab.platypus.doctemplate import SimpleDocTemplate
 from reportlab.platypus.flowables import Image
 from reportlab.platypus.tables import Table, TableStyle, GRID_STYLE, BOX_STYLE, LABELED_GRID_STYLE, COLORED_GRID_STYLE, LIST_STYLE, LongTable
-
+from reportlab.rl_config import TTFSearchPath
+import os
 
 dateTimeObj = datetime.now()
 
@@ -41,7 +42,12 @@ def GENPDF(request):
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
-	pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.ttf'))
+	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	print("--------------------------")
+	print(BASE_DIR)
+	print("--------------------------")
+	TTFSearchPath.append(str(BASE_DIR) + '/product')
+	pdfmetrics.registerFont(TTFont('supermarket', "supermarket.ttf"))
 	# pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.woff'))
 	styleSheet = getSampleStyleSheet()
 	styleN = styleSheet["Normal"]
