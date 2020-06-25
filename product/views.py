@@ -43,9 +43,6 @@ def GENPDF(request):
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	print("--------------------------")
-	print(BASE_DIR)
-	print("--------------------------")
 	TTFSearchPath.append(str(BASE_DIR) + '/product')
 	pdfmetrics.registerFont(TTFont('supermarket', "supermarket.ttf"))
 	# pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.woff'))
@@ -409,6 +406,9 @@ def GENPDF2(request):
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
+	p = canvas.Canvas(response, pagesize=A4)
+	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	TTFSearchPath.append(str(BASE_DIR) + '/product')
 	pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.ttf'))
 	# pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.ttf'))
 	styleSheet = getSampleStyleSheet()
