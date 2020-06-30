@@ -63,7 +63,7 @@
         <a class="navbar-brand" href="{% url 'Doc2-page' %}">2 products</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-        <a class="navbar-brand" href="{% url 'AddCustomer-page' %}">new cutomer</a>
+        <a class="navbar-brand" href="{% url 'AddCustomer-page' %}">new customer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         </button>
         <a class="navbar-brand" href="{% url 'ShowCustomer-page' %}">Cutomer</a>
@@ -76,15 +76,14 @@
           </form>
         </div>
       </nav>
-        
+
 		<div class="container">
-		<h2>Add product in the system</h2>
-		<p>you can add your product</p>
+		<h2>Add Customer in the System</h2>
 		<form method="POST">
 			{% csrf_token %}
 
 			<div class="form-group">
-				<label for="name">Cuatomer ID:</label>
+				<label for="name">Customer ID:</label>
 				<input type="text" class="form-control" id="customer_id" name="customer_id">
 			</div>
 			<div class="form-group">

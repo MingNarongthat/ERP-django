@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AllDoc
+from .models import AllCustomer
 
-admin.site.register(AllDoc)
+admin.site.register(AllCustomer)
 

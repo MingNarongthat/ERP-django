@@ -10,6 +10,8 @@ from cgi import escape
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFilter
 from django.db import models
+from .models import AllCustomer
+
 # Returns a datetime object containing the local date and time
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -843,18 +845,19 @@ def AddCustomer(request):
 		customer_address = data.get('customer_address')
 		customer_type = data.get('customer_customer_type')
 
-		new = Allcustomer()
+		new = AllCustomer()
 		new.customer_id = customer_id
 		new.tax_id = tax_id
 		new.company = company
 		new.customer_address = customer_address
 		new.customer_address = customer_address
 		new.save()
+	return render(request,'product/addcustomer.html')
 
 def ShowCustomer(request):
-    customer = Allcustomer.objects.all() # pull data from database all
-    context = {'cutomer':cutomer}
-    return render(request,'product/customer.html',context)
+    customer = AllCustomer.objects.all() # pull data from database all
+    context = {'customer':customer}
+    return render(request,'product/Customer.html',context)
 
  
 
