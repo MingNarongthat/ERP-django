@@ -9,6 +9,7 @@ from django.template import Context
 from cgi import escape
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFilter
+from django.db import models
 # Returns a datetime object containing the local date and time
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -32,6 +33,9 @@ def Document(request):
 
 def Document2(request):
 	return render(request, 'product/Document2.html')
+
+def newProduct(request):
+	return render(request, 'product/newProduct.html')
 
 def GENPDF(request):
 	width, height = A4
@@ -412,7 +416,7 @@ def GENPDF2(request):
 	TTFSearchPath.append(str(BASE_DIR) + '/product')
 	pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.ttf'))
 	# pdfmetrics.registerFont(TTFont('supermarket', 'supermarket.ttf'))
-	
+
 	styleSheet = getSampleStyleSheet()
 	styleN = styleSheet["Normal"]
 	styleT = styleSheet["Title"]
@@ -830,8 +834,27 @@ def GENPDF2(request):
 
 	return response
 
+def AddCustomer(request):
+	if request.method == 'POST':
+		data = request.POST.copy()
+		customer_id = data.get('customer_id')
+		tax_id = data.get('tax_id')
+		company = data.get('company')
+		customer_address = data.get('customer_address')
+		customer_type = data.get('customer_customer_type')
 
+		new = Allcustomer()
+		new.customer_id = customer_id
+		new.tax_id = tax_id
+		new.company = company
+		new.customer_address = customer_address
+		new.customer_address = customer_address
+		new.save()
 
+def ShowCustomer(request):
+    customer = Allcustomer.objects.all() # pull data from database all
+    context = {'cutomer':cutomer}
+    return render(request,'product/customer.html',context)
 
  
 
