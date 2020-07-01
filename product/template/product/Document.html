@@ -1,81 +1,9 @@
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Checkout example · Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/checkout/">
-
-    <!-- Bootstrap core CSS -->
-<link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.4/examples/checkout/form-validation.css" rel="stylesheet">
-  </head>
-
-  <body class="bg-light">
-    <div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://www.c2premium.com/wp-content/uploads/2019/09/website-03-03.png" alt="" width="600" height="100">
-    <h2>SaleSupporter</h2>
+{%extends 'product/base.html'%}
+ 
+{%block content%}
     <!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
-  </div>
   
-  <div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{% url 'Doc-page' %}">C2Support</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <a class="navbar-brand" href="{% url 'Doc2-page' %}">2 products</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <a class="navbar-brand" href="{% url 'AddCustomer-page' %}">new customer</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <a class="navbar-brand" href="{% url 'ShowCustomer-page' %}">Cutomer</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+<div class="container"> 
         <form action="ExportDoc" method="post">
           {%csrf_token%}
           <div class="row">
@@ -95,344 +23,339 @@
             <label for="address2">ที่อยู่<span class="text-muted"></span></label>
             <input type="text" name ="address2" class="form-control" id="address2" placeholder="ที่อยู่เขต/ตำบล แขวง/อำเภอ">
           </div>
-          <div class="row">
-            <div class="col-md-10 mb-3">
-              <label for="state">จังหวัด</label>
-              <select class="custom-select d-block w-100" id="state" name="province" >
-                <option value="">Choose...</option>
-                <option>	กระบี่	</option>
-                <option>	กรุงเทพมหานคร	</option>
-                <option>	กาญจนบุรี	</option>
-                <option>	กาฬสินธุ์	</option>
-                <option>	กำแพงเพชร	</option>
-                <option>	ขอนแก่น	</option>
-                <option>	จันทบุรี	</option>
-                <option>	ฉะเชิงเทรา	</option>
-                <option>	ชลบุรี	</option>
-                <option>	ชัยนาท	</option>
-                <option>	ชัยภูมิ	</option>
-                <option>	ชุมพร	</option>
-                <option>	เชียงราย	</option>
-                <option>	เชียงใหม่	</option>
-                <option>	ตรัง	</option>
-                <option>	ตราด	</option>
-                <option>	ตาก	</option>
-                <option>	นครนายก	</option>
-                <option>	นครปฐม	</option>
-                <option>	นครพนม	</option>
-                <option>	นครราชสีมา	</option>
-                <option>	นครศรีธรรมราช	</option>
-                <option>	นครสวรรค์	</option>
-                <option>	นนทบุรี	</option>
-                <option>	นราธิวาส	</option>
-                <option>	น่าน	</option>
-                <option>	บุรีรัมย์	</option>
-                <option>	ปทุมธานี	</option>
-                <option>	ประจวบคีรีขันธ์	</option>
-                <option>	ปราจีนบุรี	</option>
-                <option>	ปัตตานี	</option>
-                <option>	พระนครศรีอยุธยา	</option>
-                <option>	พะเยา	</option>
-                <option>	พังงา	</option>
-                <option>	พัทลุง	</option>
-                <option>	พิจิตร	</option>
-                <option>	พิษณุโลก	</option>
-                <option>	เพชรบุรี	</option>
-                <option>	เพชรบูรณ์	</option>
-                <option>	แพร่	</option>
-                <option>	ภูเก็ต	</option>
-                <option>	มหาสารคาม	</option>
-                <option>	มุกดาหาร	</option>
-                <option>	แม่ฮ่องสอน	</option>
-                <option>	ยโสธร	</option>
-                <option>	ยะลา	</option>
-                <option>	ร้อยเอ็ด	</option>
-                <option>	ระนอง	</option>
-                <option>	ระยอง	</option>
-                <option>	ราชบุรี	</option>
-                <option>	ลพบุรี	</option>
-                <option>	เลย	</option>
-                <option>	ลำปาง	</option>
-                <option>	ลำพูน	</option>
-                <option>	ศีรสะเกษ	</option>
-                <option>	สกลนคร	</option>
-                <option>	สงขลา	</option>
-                <option>	สตูล	</option>
-                <option>	สมุทรปราการ	</option>
-                <option>	สมุทรสงคราม	</option>
-                <option>	สมุทรสาคร	</option>
-                <option>	สระแก้ว	</option>
-                <option>	สระบุรี	</option>
-                <option>	สิงห์บุรี	</option>
-                <option>	สุโขทัย	</option>
-                <option>	สุพรรณบุรี	</option>
-                <option>	สุราษฎร์ธานี	</option>
-                <option>	สุรินทร์	</option>
-                <option>	หนองคาย	</option>
-                <option>	หนองบัวลำภู	</option>
-                <option>	อ่างทอง	</option>
-                <option>	อำนาจเจริญ	</option>
-                <option>	อุดรธานี	</option>
-                <option>	อุตรดิตถ์	</option>
-                <option>	อุทัยธานี	</option>
-                <option>	อุบลราชธานี	</option>
-              </select>
-              <div class="invalid-feedback">
-                กรุณาเลือกจังหวัด
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <label for="zip">รหัสไปรษณีย์</label>
-              <input type="text" class="form-control" id="zipcode" placeholder="" name="zipcode">
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="tax">เลขที่เสียภาษี<span class="text-muted"></span></label>
-            <input type="number" name ="tax" class="form-control" id="tax" placeholder="เลขที่เสียภาษี">
-          </div>
-          <div class="mb-3">
-            <label for="tel1">เบอร์ลูกค้า<span class="text-muted"></span></label>
-            <input type="number" name ="tel1" class="form-control" id="tel1" placeholder="เบอร์โทรศัพท์">
-          </div>
-<!--           <div class="mb-3">
-            <label for="tel2">เบอร์ผู้ประสานงาน<span class="text-muted"></span></label>
-            <input type="number" name ="tel2" class="form-control" id="tel1" placeholder="เบอร์โทรศัพท์">
-          </div> -->
-<!--           <div class="mb-3">
-            <label for="productID">รหัสสินค้า<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product" placeholder="รหัสสินค้า" name="productID">
-          </div> -->
-                                                <!-- สินค้า1 -->                                          
-          <div class="col-md-10 mb-3">
-              <label for="state">รหัสสินค้า</label>
-              <select class="custom-select d-block w-100" id="product" name="productID" >
-                <option value="">Choose...</option>
-                <option>  A06-1012  </option>
-                <option>  A06-1013  </option>
-                <option>  A06-1014  </option>
-                <option>  A06-1015  </option>
-                <option>  A06-1016  </option>
-                <option>  A06-1017  </option>
-                <option>  A06-1018  </option>
-                <option>  A06-1019  </option>
-                <option>  A06-1020  </option>
-                <option>  A06-1021  </option>
-                <option>  A06-1022  </option>
-                <option>  A06-1023  </option>
-                <option>  A06-1024  </option>
-                <option>  A06-1025  </option>
-                <option>  A06-1026  </option>
-                <option>  A06-1027  </option>
-                <option>  A06-1028  </option>
-                <option>  A06-1029  </option>
-                <option>  A06-1030  </option>
-                <option>  A06-1031  </option>
-                <option>  A06-1032  </option>
-                <option>  A06-1033  </option>
-                <option>  A06-1034  </option>
-                <option>  A06-1035  </option>
-                <option>  A06-1036  </option>
-                <option>  A06-1037  </option>
-                <option>  A0K-1001  </option>
-                <option>  A0K-1002  </option>
-                <option>  A0K-1003  </option>
-                <option>  A0K-1004  </option>
-                <option>  A0K-1005  </option>
-                <option>  A0K-1006  </option>
-                <option>  A0K-1007  </option>
-                <option>  A0K-1008  </option>
-                <option>  A0K-1009  </option>
-                <option>  A0K-1010  </option>
-                <option>  A0K-1011  </option>
-                <option>  A0K-1012  </option>
-                <option>  A0K-1013  </option>
-                <option>  A0K-1014  </option>
-                <option>  A0K-1015  </option>
-                <option>  A0K-1016  </option>
-                <option>  A0K-1017  </option>
-                <option>  A0K-1018  </option>
-                <option>  A0K-1019  </option>
-                <option>  A0K-1020  </option>
-                <option>  A0K-1021  </option>
-                <option>  A0K-1022  </option>
-                <option>  A0K-1023  </option>
-                <option>  A0K-1024  </option>
-                <option>  A0K-1025  </option>
-                <option>  A0K-1026  </option>
-                <option>  A0K-1027  </option>
-                <option>  A0K-1028  </option>
-                <option>  A0K-1029  </option>
-                <option>  A0K-1030  </option>
-                <option>  A0K-1031  </option>
-                <option>  A0K-1032  </option>
-                <option>  A0K-1034  </option>
-                <option>  A0K-1035  </option>
-                <option>  A0K-1036  </option>
-                <option>  A0K-1037  </option>
-                <option>  A0K-1038  </option>
-                <option>  A0K-1039  </option>
-                <option>  A0L-1001  </option>
-                <option>  A0L-1002  </option>
-                <option>  A0L-1003  </option>
-                <option>  A0L-1004  </option>
-                <option>  A0L-1005  </option>
-                <option>  A0L-1006  </option>
-                <option>  A0L-1007  </option>
-                <option>  A0L-1008  </option>
-                <option>  A0L-1009  </option>
-                <option>  A0L-1010  </option>
-                <option>  A0L-1011  </option>
-                <option>  A0L-1012  </option>
-                <option>  A0L-1013  </option>
-                <option>  A0L-1014  </option>
-                <option>  A0L-1015  </option>
-                <option>  A0L-1016  </option>
-                <option>  A0L-1017  </option>
-                <option>  A0L-1018  </option>
-                <option>  A0L-1019  </option>
-                <option>  A0L-1020  </option>
-                <option>  A0L-1021  </option>
-                <option>  A0L-1022  </option>
-                <option>  A0L-1023  </option>
-                <option>  A0L-1024  </option>
-                <option>  A0L-1025  </option>
-                <option>  A0L-1026  </option>
-                <option>  A0L-1027  </option>
-                <option>  A0L-1029  </option>
-                <option>  A0L-1030  </option>
-                <option>  A0L-1031  </option>
-                <option>  A0L-1032  </option>
-                <option>  A0M-1001  </option>
-                <option>  A0M-1002  </option>
-                <option>  A0M-1003  </option>
-                <option>  A0M-1004  </option>
-                <option>  A0M-1005  </option>
-                <option>  A0M-1006  </option>
-                <option>  A0M-1007  </option>
-                <option>  A0M-1008  </option>
-                <option>  A0M-1009  </option>
-                <option>  A0M-1010  </option>
-                <option>  A0M-1011  </option>
-                <option>  A0M-1012  </option>
-                <option>  A0M-1013  </option>
-                <option>  A0M-1014  </option>
-                <option>  A0M-1015  </option>
-                <option>  A0M-1016  </option>
-                <option>  A0M-1017  </option>
-                <option>  A0M-1018  </option>
-                <option>  A0M-1019  </option>
-                <option>  A0M-1020  </option>
-                <option>  A0M-1021  </option>
-                <option>  A0M-1022  </option>
-                <option>  A0M-1023  </option>
-                <option>  A0M-1024  </option>
-                <option>  A0M-1025  </option>
-                <option>  A0M-1026  </option>
-                <option>  A0M-1027  </option>
-                <option>  A0M-1028  </option>
-                <option>  A0M-1029  </option>
-                <option>  A0M-1030  </option>
-                <option>  A0M-1031  </option>
-                <option>  A0M-1032  </option>
-                <option>  A0M-1033  </option>
-                <option>  A0M-1034  </option>
-                <option>  A0M-1035  </option>
-                <option>  A0M-1036  </option>
-                <option>  A0M-1037  </option>
-                <option>  A0N-1001  </option>
-                <option>  A0N-1002  </option>
-                <option>  A0N-1003  </option>
-                <option>  A0N-1004  </option>
-                <option>  A0N-1005  </option>
-                <option>  A0N-1006  </option>
-                <option>  A0N-1007  </option>
-                <option>  A0N-1008  </option>
-                <option>  A0N-1009  </option>
-                <option>  A0N-1010  </option>
-                <option>  A0N-1011  </option>
-                <option>  A0N-1012  </option>
-                <option>  A0N-1013  </option>
-                <option>  A0N-1014  </option>
-                <option>  A0N-1015  </option>
-              </select>
-          </div>           
-          <div class="mb-3">
-            <label for="product">รายละเอียดสินค้า<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product" placeholder="รายละเอียดสินค้า" name="nameProduct">
-          </div>
-          <div class="mb-3">
-              <label for="amount">จำนวน<span class="text-muted"></span></label>
-              <input type="number" class="form-control" id="amount" placeholder="จำนวน" name="amount">
-          </div>
-          <div class="mb-3">
-              <label for="price2">ราคา <span class="text-muted"></span></label>
-              <input type="number" class="form-control" id="price1" placeholder="ราคา" name="price">
-          </div>
-                                                <!-- สินค้า2 -->
-<!--           <div class="mb-3">
-          <label for="NO2">ชิ้นที่<span class="text-muted"></span></label>
-          <input type="number" class="form-control" id="NO2" placeholder="ชิ้นที่" name="NO2">
-          </div>  
-          <div class="mb-3">
-            <label for="productID2">รหัสสินค้า2<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product2" placeholder="รหัสสินค้า2" name="productID2">
-          </div>                                              
-          <div class="mb-3">
-            <label for="product2">รายละเอียดสินค้า2<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product2" placeholder="รายละเอียดสินค้า2" name="nameProduct2">
-          </div>
-          <div class="mb-3">
-              <label for="amount2">จำนวน<span class="text-muted"></span></label>
-              <input type="number2" class="form-control" id="amount2" placeholder="จำนวน2" name="amount2">
-          </div>
-          <div class="mb-3">
-              <label for="price2">ราคา <span class="text-muted"></span></label>
-              <input type="number2" class="form-control" id="price2" placeholder="ราคา2" name="price2">
-          </div> -->
-                                                <!-- สินค้า3 -->
-<!--           <div class="mb-3">
-          <label for="NO.3">ชิ้นที่<span class="text-muted"></span></label>
-          <input type="number" class="form-control" id="NO.3" placeholder="ชิ้นที่" name="NO.3">
-          </div> 
-          <div class="mb-3">
-            <label for="productID3">รหัสสินค้า3<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product3" placeholder="รหัสสินค้า3" name="productID3">
-          </div>                                                
-          <div class="mb-3">
-            <label for="product3">รายละเอียดสินค้า3<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="product3" placeholder="รายละเอียดสินค้า3" name="nameProduct3">
-          </div>
-          <div class="mb-3">
-              <label for="amount3">จำนวน<span class="text-muted"></span></label>
-              <input type="number" class="form-control" id="amount3" placeholder="จำนวน" name="amount3">
-          </div>
-          <div class="mb-3">
-              <label for="price3">ราคา <span class="text-muted"></span></label>
-              <input type="number" class="form-control" id="price3" placeholder="ราคา3" name="price3">
-          </div> -->
 
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="quotation" name="DocMethod" type="radio" class="custom-control-input" checked required name="type1">
-                <label class="custom-control-label" for="quotation" >Quotation</label>
+              <div class="row">
+                <div class="col-md-10 mb-3">
+                  <label for="state">จังหวัด</label>
+                  <select class="custom-select d-block w-100" id="state" name="province" >
+                    <option value="">Choose...</option>
+                    <option>	กระบี่	</option>
+                    <option>	กรุงเทพมหานคร	</option>
+                    <option>	กาญจนบุรี	</option>
+                    <option>	กาฬสินธุ์	</option>
+                    <option>	กำแพงเพชร	</option>
+                    <option>	ขอนแก่น	</option>
+                    <option>	จันทบุรี	</option>
+                    <option>	ฉะเชิงเทรา	</option>
+                    <option>	ชลบุรี	</option>
+                    <option>	ชัยนาท	</option>
+                    <option>	ชัยภูมิ	</option>
+                    <option>	ชุมพร	</option>
+                    <option>	เชียงราย	</option>
+                    <option>	เชียงใหม่	</option>
+                    <option>	ตรัง	</option>
+                    <option>	ตราด	</option>
+                    <option>	ตาก	</option>
+                    <option>	นครนายก	</option>
+                    <option>	นครปฐม	</option>
+                    <option>	นครพนม	</option>
+                    <option>	นครราชสีมา	</option>
+                    <option>	นครศรีธรรมราช	</option>
+                    <option>	นครสวรรค์	</option>
+                    <option>	นนทบุรี	</option>
+                    <option>	นราธิวาส	</option>
+                    <option>	น่าน	</option>
+                    <option>	บุรีรัมย์	</option>
+                    <option>	ปทุมธานี	</option>
+                    <option>	ประจวบคีรีขันธ์	</option>
+                    <option>	ปราจีนบุรี	</option>
+                    <option>	ปัตตานี	</option>
+                    <option>	พระนครศรีอยุธยา	</option>
+                    <option>	พะเยา	</option>
+                    <option>	พังงา	</option>
+                    <option>	พัทลุง	</option>
+                    <option>	พิจิตร	</option>
+                    <option>	พิษณุโลก	</option>
+                    <option>	เพชรบุรี	</option>
+                    <option>	เพชรบูรณ์	</option>
+                    <option>	แพร่	</option>
+                    <option>	ภูเก็ต	</option>
+                    <option>	มหาสารคาม	</option>
+                    <option>	มุกดาหาร	</option>
+                    <option>	แม่ฮ่องสอน	</option>
+                    <option>	ยโสธร	</option>
+                    <option>	ยะลา	</option>
+                    <option>	ร้อยเอ็ด	</option>
+                    <option>	ระนอง	</option>
+                    <option>	ระยอง	</option>
+                    <option>	ราชบุรี	</option>
+                    <option>	ลพบุรี	</option>
+                    <option>	เลย	</option>
+                    <option>	ลำปาง	</option>
+                    <option>	ลำพูน	</option>
+                    <option>	ศีรสะเกษ	</option>
+                    <option>	สกลนคร	</option>
+                    <option>	สงขลา	</option>
+                    <option>	สตูล	</option>
+                    <option>	สมุทรปราการ	</option>
+                    <option>	สมุทรสงคราม	</option>
+                    <option>	สมุทรสาคร	</option>
+                    <option>	สระแก้ว	</option>
+                    <option>	สระบุรี	</option>
+                    <option>	สิงห์บุรี	</option>
+                    <option>	สุโขทัย	</option>
+                    <option>	สุพรรณบุรี	</option>
+                    <option>	สุราษฎร์ธานี	</option>
+                    <option>	สุรินทร์	</option>
+                    <option>	หนองคาย	</option>
+                    <option>	หนองบัวลำภู	</option>
+                    <option>	อ่างทอง	</option>
+                    <option>	อำนาจเจริญ	</option>
+                    <option>	อุดรธานี	</option>
+                    <option>	อุตรดิตถ์	</option>
+                    <option>	อุทัยธานี	</option>
+                    <option>	อุบลราชธานี	</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    กรุณาเลือกจังหวัด
+                  </div>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="zip">รหัสไปรษณีย์</label>
+                  <input type="text" class="form-control" id="zipcode" placeholder="" name="zipcode">
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
               </div>
-            </div>
-            <h4 class="mb-3">เอกสาร</h4>
+              <div class="mb-3">
+                <label for="tax">เลขที่เสียภาษี<span class="text-muted"></span></label>
+                <input type="number" name ="tax" class="form-control" id="tax" placeholder="เลขที่เสียภาษี">
+              </div>
+              <div class="mb-3">
+                <label for="tel1">เบอร์ลูกค้า<span class="text-muted"></span></label>
+                <input type="number" name ="tel1" class="form-control" id="tel1" placeholder="เบอร์โทรศัพท์">
+              </div>
+    <!--           <div class="mb-3">
+                <label for="tel2">เบอร์ผู้ประสานงาน<span class="text-muted"></span></label>
+                <input type="number" name ="tel2" class="form-control" id="tel1" placeholder="เบอร์โทรศัพท์">
+              </div> -->
+    <!--           <div class="mb-3">
+                <label for="productID">รหัสสินค้า<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product" placeholder="รหัสสินค้า" name="productID">
+              </div> -->
+                                                    <!-- สินค้า1 -->                                          
+              <div class="col-md-10 mb-3">
+                  <label for="state">รหัสสินค้า</label>
+                  <select class="custom-select d-block w-100" id="product" name="productID" >
+                    <option value="">Choose...</option>
+                    <option>  A06-1012  </option>
+                    <option>  A06-1013  </option>
+                    <option>  A06-1014  </option>
+                    <option>  A06-1015  </option>
+                    <option>  A06-1016  </option>
+                    <option>  A06-1017  </option>
+                    <option>  A06-1018  </option>
+                    <option>  A06-1019  </option>
+                    <option>  A06-1020  </option>
+                    <option>  A06-1021  </option>
+                    <option>  A06-1022  </option>
+                    <option>  A06-1023  </option>
+                    <option>  A06-1024  </option>
+                    <option>  A06-1025  </option>
+                    <option>  A06-1026  </option>
+                    <option>  A06-1027  </option>
+                    <option>  A06-1028  </option>
+                    <option>  A06-1029  </option>
+                    <option>  A06-1030  </option>
+                    <option>  A06-1031  </option>
+                    <option>  A06-1032  </option>
+                    <option>  A06-1033  </option>
+                    <option>  A06-1034  </option>
+                    <option>  A06-1035  </option>
+                    <option>  A06-1036  </option>
+                    <option>  A06-1037  </option>
+                    <option>  A0K-1001  </option>
+                    <option>  A0K-1002  </option>
+                    <option>  A0K-1003  </option>
+                    <option>  A0K-1004  </option>
+                    <option>  A0K-1005  </option>
+                    <option>  A0K-1006  </option>
+                    <option>  A0K-1007  </option>
+                    <option>  A0K-1008  </option>
+                    <option>  A0K-1009  </option>
+                    <option>  A0K-1010  </option>
+                    <option>  A0K-1011  </option>
+                    <option>  A0K-1012  </option>
+                    <option>  A0K-1013  </option>
+                    <option>  A0K-1014  </option>
+                    <option>  A0K-1015  </option>
+                    <option>  A0K-1016  </option>
+                    <option>  A0K-1017  </option>
+                    <option>  A0K-1018  </option>
+                    <option>  A0K-1019  </option>
+                    <option>  A0K-1020  </option>
+                    <option>  A0K-1021  </option>
+                    <option>  A0K-1022  </option>
+                    <option>  A0K-1023  </option>
+                    <option>  A0K-1024  </option>
+                    <option>  A0K-1025  </option>
+                    <option>  A0K-1026  </option>
+                    <option>  A0K-1027  </option>
+                    <option>  A0K-1028  </option>
+                    <option>  A0K-1029  </option>
+                    <option>  A0K-1030  </option>
+                    <option>  A0K-1031  </option>
+                    <option>  A0K-1032  </option>
+                    <option>  A0K-1034  </option>
+                    <option>  A0K-1035  </option>
+                    <option>  A0K-1036  </option>
+                    <option>  A0K-1037  </option>
+                    <option>  A0K-1038  </option>
+                    <option>  A0K-1039  </option>
+                    <option>  A0L-1001  </option>
+                    <option>  A0L-1002  </option>
+                    <option>  A0L-1003  </option>
+                    <option>  A0L-1004  </option>
+                    <option>  A0L-1005  </option>
+                    <option>  A0L-1006  </option>
+                    <option>  A0L-1007  </option>
+                    <option>  A0L-1008  </option>
+                    <option>  A0L-1009  </option>
+                    <option>  A0L-1010  </option>
+                    <option>  A0L-1011  </option>
+                    <option>  A0L-1012  </option>
+                    <option>  A0L-1013  </option>
+                    <option>  A0L-1014  </option>
+                    <option>  A0L-1015  </option>
+                    <option>  A0L-1016  </option>
+                    <option>  A0L-1017  </option>
+                    <option>  A0L-1018  </option>
+                    <option>  A0L-1019  </option>
+                    <option>  A0L-1020  </option>
+                    <option>  A0L-1021  </option>
+                    <option>  A0L-1022  </option>
+                    <option>  A0L-1023  </option>
+                    <option>  A0L-1024  </option>
+                    <option>  A0L-1025  </option>
+                    <option>  A0L-1026  </option>
+                    <option>  A0L-1027  </option>
+                    <option>  A0L-1029  </option>
+                    <option>  A0L-1030  </option>
+                    <option>  A0L-1031  </option>
+                    <option>  A0L-1032  </option>
+                    <option>  A0M-1001  </option>
+                    <option>  A0M-1002  </option>
+                    <option>  A0M-1003  </option>
+                    <option>  A0M-1004  </option>
+                    <option>  A0M-1005  </option>
+                    <option>  A0M-1006  </option>
+                    <option>  A0M-1007  </option>
+                    <option>  A0M-1008  </option>
+                    <option>  A0M-1009  </option>
+                    <option>  A0M-1010  </option>
+                    <option>  A0M-1011  </option>
+                    <option>  A0M-1012  </option>
+                    <option>  A0M-1013  </option>
+                    <option>  A0M-1014  </option>
+                    <option>  A0M-1015  </option>
+                    <option>  A0M-1016  </option>
+                    <option>  A0M-1017  </option>
+                    <option>  A0M-1018  </option>
+                    <option>  A0M-1019  </option>
+                    <option>  A0M-1020  </option>
+                    <option>  A0M-1021  </option>
+                    <option>  A0M-1022  </option>
+                    <option>  A0M-1023  </option>
+                    <option>  A0M-1024  </option>
+                    <option>  A0M-1025  </option>
+                    <option>  A0M-1026  </option>
+                    <option>  A0M-1027  </option>
+                    <option>  A0M-1028  </option>
+                    <option>  A0M-1029  </option>
+                    <option>  A0M-1030  </option>
+                    <option>  A0M-1031  </option>
+                    <option>  A0M-1032  </option>
+                    <option>  A0M-1033  </option>
+                    <option>  A0M-1034  </option>
+                    <option>  A0M-1035  </option>
+                    <option>  A0M-1036  </option>
+                    <option>  A0M-1037  </option>
+                    <option>  A0N-1001  </option>
+                    <option>  A0N-1002  </option>
+                    <option>  A0N-1003  </option>
+                    <option>  A0N-1004  </option>
+                    <option>  A0N-1005  </option>
+                    <option>  A0N-1006  </option>
+                    <option>  A0N-1007  </option>
+                    <option>  A0N-1008  </option>
+                    <option>  A0N-1009  </option>
+                    <option>  A0N-1010  </option>
+                    <option>  A0N-1011  </option>
+                    <option>  A0N-1012  </option>
+                    <option>  A0N-1013  </option>
+                    <option>  A0N-1014  </option>
+                    <option>  A0N-1015  </option>
+                  </select>
+              </div>           
+              <div class="mb-3">
+                <label for="product">รายละเอียดสินค้า<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product" placeholder="รายละเอียดสินค้า" name="nameProduct">
+              </div>
+              <div class="mb-3">
+                  <label for="amount">จำนวน<span class="text-muted"></span></label>
+                  <input type="number" class="form-control" id="amount" placeholder="จำนวน" name="amount">
+              </div>
+              <div class="mb-3">
+                  <label for="price2">ราคา <span class="text-muted"></span></label>
+                  <input type="number" class="form-control" id="price1" placeholder="ราคา" name="price">
+              </div>
+                                                    <!-- สินค้า2 -->
+    <!--           <div class="mb-3">
+              <label for="NO2">ชิ้นที่<span class="text-muted"></span></label>
+              <input type="number" class="form-control" id="NO2" placeholder="ชิ้นที่" name="NO2">
+              </div>  
+              <div class="mb-3">
+                <label for="productID2">รหัสสินค้า2<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product2" placeholder="รหัสสินค้า2" name="productID2">
+              </div>                                              
+              <div class="mb-3">
+                <label for="product2">รายละเอียดสินค้า2<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product2" placeholder="รายละเอียดสินค้า2" name="nameProduct2">
+              </div>
+              <div class="mb-3">
+                  <label for="amount2">จำนวน<span class="text-muted"></span></label>
+                  <input type="number2" class="form-control" id="amount2" placeholder="จำนวน2" name="amount2">
+              </div>
+              <div class="mb-3">
+                  <label for="price2">ราคา <span class="text-muted"></span></label>
+                  <input type="number2" class="form-control" id="price2" placeholder="ราคา2" name="price2">
+              </div> -->
+                                                    <!-- สินค้า3 -->
+    <!--           <div class="mb-3">
+              <label for="NO.3">ชิ้นที่<span class="text-muted"></span></label>
+              <input type="number" class="form-control" id="NO.3" placeholder="ชิ้นที่" name="NO.3">
+              </div> 
+              <div class="mb-3">
+                <label for="productID3">รหัสสินค้า3<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product3" placeholder="รหัสสินค้า3" name="productID3">
+              </div>                                                
+              <div class="mb-3">
+                <label for="product3">รายละเอียดสินค้า3<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="product3" placeholder="รายละเอียดสินค้า3" name="nameProduct3">
+              </div>
+              <div class="mb-3">
+                  <label for="amount3">จำนวน<span class="text-muted"></span></label>
+                  <input type="number" class="form-control" id="amount3" placeholder="จำนวน" name="amount3">
+              </div>
+              <div class="mb-3">
+                  <label for="price3">ราคา <span class="text-muted"></span></label>
+                  <input type="number" class="form-control" id="price3" placeholder="ราคา3" name="price3">
+              </div> -->
 
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">ออกใบเอกสาร</button>
-        </form>  
-    </div>
-  </div>
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2019-2020 C2Trading Group</p>
-  </footer>
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="quotation" name="DocMethod" type="radio" class="custom-control-input" checked required name="type1">
+                    <label class="custom-control-label" for="quotation" >Quotation</label>
+                  </div>
+                </div>
+                <h4 class="mb-3">เอกสาร</h4>
+
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">ออกใบเอกสาร</button>
+            </form>  
+        </div>
+      </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/dist/js/bootstrap.bundle.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-        <script src="https://getbootstrap.com/docs/4.4/examples/checkout/form-validation.js"></script></body>
-</html>
+{%endblock%}
 
