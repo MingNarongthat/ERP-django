@@ -877,7 +877,6 @@ def GENPDF3(request):
 	styleT = styleSheet["Title"]
 	styleT.alignment = 0 # center 1, right 2
 
-	
 	firm = request.POST["firmname"]
 	address1 = request.POST["address"]
 	address2 = request.POST["address2"]
