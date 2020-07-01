@@ -852,7 +852,7 @@ def AddCustomer(request):
 		new.customer_address = customer_address
 		new.customer_type = customer_type
 		new.save()
-	return render(request,'product/addcustomer.html')
+	return render(request,'product/addCustomer.html')
 
 def ShowCustomer(request):
     customer_id = AllCustomer.objects.all() # pull data from database all
