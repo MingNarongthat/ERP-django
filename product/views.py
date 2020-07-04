@@ -1177,9 +1177,9 @@ def GENPDF3(request, *args,**kwargs):
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	# ptext = Paragraph("<font size=16 name='supermarket' color='red'>{}</font>".format(productID), styleT)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 25 *mm, 265 *mm)
+	ptext = Paragraph("<font size=16 name='supermarket' color='red'Z-9999</font>", styleT)
+	ptext.wrapOn(p, width, height)
+	ptext.drawOn(p, 25 *mm, 265 *mm)
 
 	p.drawImage(link_logo, 135 *mm, 270 * mm, width=50 *mm,height=10*mm,)
 
