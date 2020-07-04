@@ -9,7 +9,7 @@ from cgi import escape
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFilter
 from django.db import models
-from .models import AllCustomer, Image
+from .models import AllCustomer
 from django.core.files.storage import FileSystemStorage
 # Returns a datetime object containing the local date and time
 from reportlab.lib import colors
@@ -25,6 +25,7 @@ from reportlab.platypus.doctemplate import SimpleDocTemplate
 from reportlab.platypus.flowables import Image
 from reportlab.platypus.tables import Table, TableStyle, GRID_STYLE, BOX_STYLE, LABELED_GRID_STYLE, COLORED_GRID_STYLE, LIST_STYLE, LongTable
 from reportlab.rl_config import TTFSearchPath
+from reportlab.lib.utils import ImageReader
 import os
 
 dateTimeObj = datetime.now()
@@ -852,6 +853,7 @@ def AddCustomer(request):
 		new.customer_address = customer_address
 		new.customer_type = customer_type
 		new.save()
+
 	return render(request,'product/addCustomer.html')
 
 def ShowCustomer(request):
@@ -859,7 +861,7 @@ def ShowCustomer(request):
     context = {'customer_id':customer_id}
     return render(request,'product/Customer.html',context)
 
-def GENPDF3(request):
+def GENPDF3(request, *args,**kwargs):
 	width, height = A4
 	daystart = datetime.now().strftime('%d-%m-%Y')
 	dayend = datetime.now().strftime('%d-%m-%Y')
@@ -887,12 +889,14 @@ def GENPDF3(request):
 	tax = request.POST["tax"]
 	tel1 = request.POST["tel1"]
 	# tel2 = request.POST["tel2"]
-	productID = request.POST["productID"]
+	# productID = request.POST["productID"]
 
 	link_logo = 'https://www.c2premium.com/wp-content/uploads/2019/09/website-03-03.png'
+	link_image1 = ImageReader(request.FILES['img1'])
+	link_image2 = ImageReader(request.FILES['img2'])
+	link_image3 = ImageReader(request.FILES['img3'])
 	
-	link_image1 = request.FILES('img1')
-	profile_obj=Image(profile_picture=image1).save()
+	# profile_obj=Image(profile_picture=image1).save()
 	
 
 	name_Product = request.POST["nameProduct"]
@@ -1173,15 +1177,15 @@ def GENPDF3(request):
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	ptext = Paragraph("<font size=16 name='supermarket' color='red'>{}</font>".format(productID), styleT)
-	ptext.wrapOn(p, width, height)
-	ptext.drawOn(p, 25 *mm, 265 *mm)
+	# ptext = Paragraph("<font size=16 name='supermarket' color='red'>{}</font>".format(productID), styleT)
+	# ptext.wrapOn(p, width, height)
+	# ptext.drawOn(p, 25 *mm, 265 *mm)
 
 	p.drawImage(link_logo, 135 *mm, 270 * mm, width=50 *mm,height=10*mm,)
 
 	p.drawImage(link_image1, 25 * mm, 160 * mm, width=105 * mm, height=105 * mm)
-	# p.drawImage(link_image2, 135 *mm, 215 * mm, width=50 *mm,height=50*mm,)
-	# p.drawImage(link_image3, 135 *mm, 160 * mm, width=50*mm,height=50*mm,)
+	p.drawImage(link_image2, 135 *mm, 215 * mm, width=50 *mm,height=50*mm,)
+	p.drawImage(link_image3, 135 *mm, 160 * mm, width=50*mm,height=50*mm,)
 	# p.drawImage(link_image4, 135 *mm, 105 * mm, width=50*mm,height=50*mm,)
 	# p.drawImage(link_image5, 80 *mm, 105 * mm, width=50*mm,height=50*mm,)
 	# p.drawImage(link_image6, 25 *mm, 105 * mm, width=50*mm,height=50*mm,)
