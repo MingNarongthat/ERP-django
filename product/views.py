@@ -39,13 +39,31 @@ def Document2(request):
 def newProduct(request):
 	return render(request, 'product/newProduct.html')
 
-
+month_collect = []
 def GENPDF(request):
 	width, height = A4
 	daystart = datetime.now().strftime('%d-%m-%Y')
 	dayend = datetime.now().strftime('%d-%m-%Y')
-	dateTimeObj = datetime.now()
-	Quo_no = str(dateTimeObj.year) + str(dateTimeObj.month) + str(dateTimeObj.day) + str(dateTimeObj.hour+7) +str(dateTimeObj.minute) + str(dateTimeObj.second)
+	# sort number
+	global month_collect
+	if len(month_collect)<1:
+		month_collect = []
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+	else:
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+
+	numberQ = f"{i:04}"
+	if month != month_collect[-1]:
+		i = 0
+		month_collect = []
+	
+	Quo_no = 'Q' + str(dateTimeObj.year) + str(dateTimeObj.month) + numberQ
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
@@ -219,27 +237,6 @@ def GENPDF(request):
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 170 *mm, 195 *mm)
 
-	### ==========> สินค้า 2 ===================================================================
-	# ptext = Paragraph("<font size=12 name='supermarket'>{}</font>".format(request.POST(NO2)), styleN)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 30 *mm, 195 *mm)
-
-	# ptext = Paragraph("<font size=12 name='supermarket'>{}</font>".format(name_Product2), styleN)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 77 *mm, 195 *mm)
-
-	# ptext = Paragraph("<font size=12 name='supermarket'>{}</font>".format(amount2), styleN)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 133 *mm, 195 *mm)
-
-	# ptext = Paragraph("<font size=12 name='supermarket'>{:,}</font>".format(price2), styleN)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 150 *mm, 195 *mm)
-
-	# ptext = Paragraph("<font size=12 name='supermarket'>{:,}</font>".format(Total_price), styleN)
-	# ptext.wrapOn(p, width, height)
-	# ptext.drawOn(p, 170 *mm, 195 *mm)
-
 	### ==========> ข้อมูลฝั่งลูกค้า ===================================================================
 	p.line(20 *mm, 90 *mm, 190 *mm, 90 *mm)
 
@@ -402,14 +399,33 @@ def GENPDF(request):
 
 	p.save()
 
+	
 	return response
 
 def GENPDF2(request):
 	width, height = A4
 	daystart = datetime.now().strftime('%d-%m-%Y')
 	dayend = datetime.now().strftime('%d-%m-%Y')
-	dateTimeObj = datetime.now()
-	Quo_no = str(dateTimeObj.year) + str(dateTimeObj.month) + str(dateTimeObj.day) + str(dateTimeObj.hour+7) +str(dateTimeObj.minute) + str(dateTimeObj.second)
+	global month_collect
+	if len(month_collect)<1:
+		month_collect = []
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+	else:
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+
+	numberQ = f"{i:04}"
+	if month != month_collect[-1]:
+		i = 0
+		month_collect = []
+	
+	Quo_no = 'Q' + str(dateTimeObj.year) + str(dateTimeObj.month) + numberQ
+	
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
@@ -857,16 +873,34 @@ def AddCustomer(request):
 	return render(request,'product/addCustomer.html')
 
 def ShowCustomer(request):
-    customer_id = AllCustomer.objects.all() # pull data from database all
-    context = {'customer_id':customer_id}
-    return render(request,'product/Customer.html',context)
+	customer_id = AllCustomer.objects.all() # pull data from database all
+	context = {'customer_id':customer_id}
+	return render(request,'product/Customer.html',context)
 
 def GENPDF3(request, *args,**kwargs):
 	width, height = A4
 	daystart = datetime.now().strftime('%d-%m-%Y')
 	dayend = datetime.now().strftime('%d-%m-%Y')
-	dateTimeObj = datetime.now()
-	Quo_no = str(dateTimeObj.year) + str(dateTimeObj.month) + str(dateTimeObj.day) + str(dateTimeObj.hour+7) +str(dateTimeObj.minute) + str(dateTimeObj.second)
+	global month_collect
+	if len(month_collect)<1:
+		month_collect = []
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+	else:
+		dateTimeObj = datetime.now()
+		month = str(dateTimeObj.month)
+		month_collect.append(month)
+		i = len(month_collect)
+
+	numberQ = f"{i:04}"
+	if month != month_collect[-1]:
+		i = 0
+		month_collect = []
+	
+	Quo_no = 'Q' + str(dateTimeObj.year) + str(dateTimeObj.month) + numberQ
+	
 	response = HttpResponse(content_type='application/pdf')
 	response['Content-Disposition'] = 'attachment; filename="Quo-{}.pdf"'.format(Quo_no)# re
 	p = canvas.Canvas(response, pagesize=A4)
@@ -1177,10 +1211,10 @@ def GENPDF3(request, *args,**kwargs):
 	p.showPage()
 	### ==========> Next Page ==========================================================================================
 	### ==========> Next Page ==========================================================================================
-	ptext = Paragraph("<font size=16 name='supermarket' color='red'Z-9999</font>", styleT)
+	ptext = Paragraph("<font size=16 name='supermarket' color='red'>Z-9999</font>", styleT)
 	ptext.wrapOn(p, width, height)
 	ptext.drawOn(p, 25 *mm, 265 *mm)
-	
+
 
 	p.drawImage(link_logo, 135 *mm, 270 * mm, width=50 *mm,height=10*mm,)
 
