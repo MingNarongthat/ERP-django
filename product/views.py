@@ -116,10 +116,10 @@ def GENPDF(request):
 
 	name_Product = request.POST["nameProduct"]
 	amount = int(request.POST["amount"])
-	price = int(request.POST["price"])
-	Total_price = round(int(request.POST["amount"])*int(request.POST["price"]),2)
-	Total_tax = round(int(request.POST["amount"])*int(request.POST["price"])*1.07,2)
-	Vat = round(int(request.POST["amount"])*int(request.POST["price"])*0.07,2)
+	price = float(request.POST["price"])
+	Total_price = round(int(request.POST["amount"])*float(request.POST["price"]),2)
+	Total_tax = round(int(request.POST["amount"])*float(request.POST["price"])*1.07,2)
+	Vat = round(int(request.POST["amount"])*float(request.POST["price"])*0.07,2)
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
@@ -494,13 +494,13 @@ def GENPDF2(request):
 
 	amount = int(request.POST["amount"])
 
-	price = int(request.POST["price"])
+	price = float(request.POST["price"])
 
-	Total_price = round(int(request.POST["amount"])*int(request.POST["price"]),2)
+	Total_price = round(int(request.POST["amount"])*float(request.POST["price"]),2)
 
-	Total_tax = round(int(request.POST["amount"])*int(request.POST["price"])*1.07,2)
+	Total_tax = round(int(request.POST["amount"])*float(request.POST["price"])*1.07,2)
 
-	Vat = round(int(request.POST["amount"])*int(request.POST["price"])*0.07,2)
+	Vat = round(int(request.POST["amount"])*float(request.POST["price"])*0.07,2)
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
@@ -894,10 +894,10 @@ def GENPDF3(request, *args,**kwargs):
 
 	name_Product = request.POST["nameProduct"]
 	amount = int(request.POST["amount"])
-	price = int(request.POST["price"])
-	Total_price = round(int(request.POST["amount"])*int(request.POST["price"]),2)
-	Total_tax = round(int(request.POST["amount"])*int(request.POST["price"])*1.07,2)
-	Vat = round(int(request.POST["amount"])*int(request.POST["price"])*0.07,2)
+	price = float(request.POST["price"])
+	Total_price = round(int(request.POST["amount"])*float(request.POST["price"]),2)
+	Total_tax = round(int(request.POST["amount"])*float(request.POST["price"])*1.07,2)
+	Vat = round(int(request.POST["amount"])*float(request.POST["price"])*0.07,2)
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
@@ -1281,10 +1281,10 @@ def GENINV(request):
 
 	name_Product = request.POST["nameProduct"]
 	amount = int(request.POST["amount"])
-	price = int(request.POST["price"])
-	Total_price = round(int(request.POST["amount"])*int(request.POST["price"]),2)
-	Total_tax = round(int(request.POST["amount"])*int(request.POST["price"])*1.07,2)
-	Vat = round(int(request.POST["amount"])*int(request.POST["price"])*0.07,2)
+	price = float(request.POST["price"])
+	Total_price = round(int(request.POST["amount"])*float(request.POST["price"]),2)
+	Total_tax = round(int(request.POST["amount"])*float(request.POST["price"])*1.07,2)
+	Vat = round(int(request.POST["amount"])*float(request.POST["price"])*0.07,2)
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
@@ -1613,10 +1613,10 @@ def GENTAX(request):
 
 	name_Product = request.POST["nameProduct"]
 	amount = int(request.POST["amount"])
-	price = int(request.POST["price"])
-	Total_price = round(int(request.POST["amount"])*int(request.POST["price"]),2)
-	Total_tax = round(int(request.POST["amount"])*int(request.POST["price"])*1.07,2)
-	Vat = round(int(request.POST["amount"])*int(request.POST["price"])*0.07,2)
+	price = float(request.POST["price"])
+	Total_price = round(int(request.POST["amount"])*float(request.POST["price"]),2)
+	Total_tax = round(int(request.POST["amount"])*float(request.POST["price"])*1.07,2)
+	Vat = round(int(request.POST["amount"])*float(request.POST["price"])*0.07,2)
 	
 	# p.drawImage("https://drive.google.com/file/d/1IyG_Wpl4b8shMO3349uRcH9PeDhx45SU/view", 75, 240 * mm, width=30)
 	### ==========> ผู้เสนอ ===================================================================
