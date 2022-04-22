@@ -19,7 +19,7 @@ pdfkit==0.6.1
 Pillow==7.1.1
 pisa==3.0.33
 pycparser==2.20
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 Pyphen==0.9.5
 pytz==2019.3
 reportlab==3.5.42
